@@ -21,13 +21,20 @@ public class JogoDaVelha {
 			tabuleiro = vezX (tabuleiro);
 			imprimirTabuleiro (tabuleiro);
 			
-			vitoria = checaVitoria (tabuleiro);
-			
+			vitoria = checaVitoria (tabuleiro, 'X');
+			if (vitoria == 1) {
+				System.out.println("\nJogador X ganhou");
+				return 0;
+			}
 			
 			tabuleiro = vezO (tabuleiro);
 			imprimirTabuleiro (tabuleiro);
 			
-			vitoria = checaVitoria (tabuleiro);
+			vitoria = checaVitoria (tabuleiro, 'O');
+			if (vitoria == 1) {
+				System.out.println("\nJogador X ganhou");
+				return 0;
+			}
 			
 		}
 			
@@ -110,9 +117,9 @@ public class JogoDaVelha {
 		System.out.println(tabuleiro[2][0] + "|" + tabuleiro[2][1] + "|" + tabuleiro[2][2]);
 	}
 	
-	public static int checaVitoria (char[][] tabuleiro) {
+	public static int checaVitoria (char[][] tabuleiro, char player) {
 		
-		if (testeVitoria(tabuleiro) == 1) {
+		if (testeVitoria(tabuleiro, player) == 1) {
 			return 1;
 		}
 		
@@ -121,37 +128,37 @@ public class JogoDaVelha {
 		}
 	}
 	
-	public static int testeVitoria (char[][] tabuleiro) {
+	public static int testeVitoria (char[][] tabuleiro, char player) {
 		
-		if (tabuleiro[0][0] == tabuleiro[0][1] && tabuleiro[0][1] == tabuleiro[0][2]) {
+		if (tabuleiro[0][0] == player && tabuleiro[0][1] == player && tabuleiro[0][2] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[1][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[1][2]) {
+		else if (tabuleiro[1][0] == player && tabuleiro[1][1] == player &&  tabuleiro[1][2] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[2][0] == tabuleiro[2][1] && tabuleiro[2][1] == tabuleiro[2][2]) {
+		else if (tabuleiro[2][0] == player && tabuleiro[2][1] == player && tabuleiro[2][2] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[0][0] == tabuleiro[1][0] && tabuleiro[1][0] == tabuleiro[2][0]) {
+		else if (tabuleiro[0][0] == player && tabuleiro[1][0] == player && tabuleiro[2][0] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[0][1] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][1]) {
+		else if (tabuleiro[0][1] == player && tabuleiro[1][1] == player && tabuleiro[2][1] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[0][2] == tabuleiro[1][2] && tabuleiro[1][2] == tabuleiro[2][2]) {
+		else if (tabuleiro[0][2] == player && tabuleiro[1][2] == player && tabuleiro[2][2] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
+		else if (tabuleiro[0][0] == player  && tabuleiro[1][1] == player && tabuleiro[2][2] == player) {
 			return 1;
 		}
 		
-		else if (tabuleiro[2][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[0][2]) {
+		else if (tabuleiro[2][0] == player && tabuleiro[1][1] == player && tabuleiro[0][2] == player) {
 			return 1;
 		}
 		
