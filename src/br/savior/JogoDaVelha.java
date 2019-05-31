@@ -32,7 +32,7 @@ public class JogoDaVelha {
 			
 			vitoria = checaVitoria (tabuleiro, 'O');
 			if (vitoria == 1) {
-				System.out.println("\nJogador X ganhou");
+				System.out.println("\nJogador O ganhou");
 				return 0;
 			}
 			
